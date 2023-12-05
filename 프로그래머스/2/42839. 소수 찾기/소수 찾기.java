@@ -18,7 +18,6 @@ class Solution {
         for(int i = 0; i<arr.length; i++) {
 			permutation(arr, result, visited, 0, i+1);
 		}
-        // System.out.println(answer);
         answer = finalResult.size();
         
         return answer;
@@ -32,14 +31,10 @@ class Solution {
 			}
 			if(prime(Integer.parseInt(checkResult)) && !(finalResult.contains(Integer.parseInt(checkResult)))) {
 				
-				// System.out.println("소수 : "+checkResult);
 				finalResult.add(Integer.parseInt(checkResult));
 				return;
 			}
 		}
-		
-		
-		
 		for(int i =0; i<arr.length; i++) {
 			if(!visited[i]) {
 				visited[i] = true;
