@@ -4,14 +4,18 @@
 #include <algorithm>
 #include <queue>
 
+/*
+priority queue와 sort에서 return 유의
+*/
+
 struct Compare {
-  int operator()(int a, int b) {
-    return a > b;
+  bool operator()(int a, int b) {
+    return a > b; // b를 a보다 우선 순위로, 즉 작은 것부터 오름차순으로 정렬
   }
 };
 
-int sortBySmall(std::pair<int, int> a, std::pair<int, int> b) {
-  return a.first < b.first;
+bool sortBySmall(std::pair<int, int> a, std::pair<int, int> b) {
+  return a.first < b.first;   // first가 작은 것부터 오름차순으로 정렬
 }
 
 int main() {
@@ -33,20 +37,12 @@ int main() {
 
   sort(vec.begin(), vec.end(), sortBySmall);
 
-  // std::cout << std::endl;
-  // for(std::pair<int, int> a : vec) {
-  //   std::cout << a.first << " " << a.second << std::endl;
-  // }
-
   pq.push(vec[0].second);
   for(int i = 1; i < vec.size(); i++) {
-    // std::cout << "start : " << vec[i].first << " end : " << vec[i].second << std::endl;
     if (vec[i].first >= pq.top()) {
-      // std::cout << "come in" << std::endl;
       pq.pop();
     }
     pq.push(vec[i].second);
-    // std::cout << "top : " << pq.top() << std::endl;
   }
   std::cout << pq.size();
 }
