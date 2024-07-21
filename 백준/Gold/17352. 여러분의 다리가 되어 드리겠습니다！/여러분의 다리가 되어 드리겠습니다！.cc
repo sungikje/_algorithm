@@ -80,4 +80,6 @@ for문 처음 index부터 dfs 탐색 - visited false인 경우
 
 dfs - 재귀 이용했을 땐 메모리 초과
 
+초기에 visited arr로 진행 bool arr[n+1], 근데 arr 단순 선언만 하는 경우 모든
+index가 false로 처리되지 않는 것 확인함
 */
