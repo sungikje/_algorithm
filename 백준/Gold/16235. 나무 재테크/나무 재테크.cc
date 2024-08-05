@@ -208,4 +208,7 @@ vector<int> arr[2], 이는 배열의 요소가 int type의 vector라는 의미
 1차원 배열처럼 접근 가능하다
 
 문제 제대로 읽자, 처음에 5 시작이다
+
+loop 내에서 erase 사용 시 주의점 필요
+  loop는 for문 호출 시 구간 결정, loop 내에서 erase 사용 시 index 유의
 */
