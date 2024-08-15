@@ -2,25 +2,6 @@
 #include "vector"
 #include "stack"
 
-#define MAX 1000000000
-
-int res = 0;
-
-// void dfs(int cur, int st_node, int end_node, int mid, std::vector<std::vector<std::pair<int, int> > > graph, std::vector<bool>& visited) {
-//   if (cur == end_node) {
-//     if (res < mid) res = mid;
-//     return;
-//   } else {
-//     for(int i = 0; i < graph[cur].size(); i++) {
-//       if (!visited[(graph[cur][i]).first] && (graph[cur][i]).second >= mid) {
-//         visited[(graph[cur][i]).first] = true;
-//         dfs((graph[cur][i]).first, st_node, end_node, mid, graph, visited);
-//         visited[(graph[cur][i]).first] = false;
-//       } 
-//     }
-//   }
-// }
-
 bool dfs(int st_node, int end_node, int mid, std::vector<std::vector<std::pair<int, int> > > graph) {
   std::stack<int> stk;
   std::vector<bool> visited(graph.size(), false);
@@ -50,7 +31,7 @@ int main() {
 
   int n, m;
   int st_node, end_node;
-  int min = MAX;
+  int res = 0;
   int max_edge = 0;
 
   std::cin >> n >> m;
@@ -69,11 +50,11 @@ int main() {
 
   int low = 1;
   int high = max_edge;
-
+  
   while(low <= high) {
     int mid = (low + high) / 2;
+
     visited[st_node] = true;
-    // dfs(st_node, st_node, end_node, mid, graph, visited)
     if (dfs(st_node, end_node, mid, graph)) {
       low = mid + 1;
       res = mid;
@@ -103,4 +84,12 @@ dfs 재귀로 구현한 경우에
 
 메모리 초과
   => 특정 변수로 인한 문제는 아닐 것 같아서 백트래킹 dfs 재귀를 반복문 수정해보자 
+
+최종 로직
+  dfs로 모든 경로를 탐색하는 것은 비효율적
+	:: dfs를 보다 효율적으로 사용하려면 dfs 이전에 탐색하고자 하는 부분들을 최대한 줄이는 것도 하나의 방법
+
+  첫번째로 그래프의 최대 중량을 체크 
+
+  1부터 최대 중량까지 이분 탐색을 이용해 도달할 수 있는지 여부 체크 
 */
