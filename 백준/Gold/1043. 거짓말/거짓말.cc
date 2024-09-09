@@ -29,17 +29,6 @@ int main() {
     known.push(t2);
   }
 
-  // cout << endl;
-  // vector<int> ttt;
-  // while(!known.empty()) { 
-  //   ttt.push_back(known.front());
-  //   known.pop();
-  // }
-  // cout << "ttt" << endl;
-  // for(int i : ttt) { cout << i << " "; }
-  // cout << endl;
-  
-
   for(int i = 0; i < m; i++) {
     cin >> t;
     set<int> _set;
