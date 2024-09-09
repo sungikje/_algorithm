@@ -40,11 +40,9 @@ int main() {
   }
 
   while(!known.empty()) {
-    
     int q = known.front();
     known.pop();
     visited[q] = true;
-    
     
     for(int i = 0; i < vec.size(); i++) {
       check = false;
