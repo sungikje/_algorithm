@@ -40,13 +40,10 @@ int main() {
 
   int i = 0;
   while(true) {
-    // std::cout << "robot : " << robot_x << " " << robot_y << std::endl;
     
     int move_x, move_y;
     move_x = robot_x + dire[dire_seq[i]-1][0];
     move_y = robot_y + dire[dire_seq[i]-1][1];
-    
-    // std::cout << "move : " << move_x << " " << move_y << std::endl;
 
     if (check_conditions(move_x, move_y, &map)) {
       map[robot_x][robot_y] = -1;
@@ -68,21 +65,6 @@ int main() {
       i += 1;
       if (i == 4) i = 0;
     }
-
-    
-
-    
-    
-    // std::cout << "============================\n";
-    // for(auto& i : map) {
-    //   for(auto&j : i) {
-    //     std::cout << j << " ";
-    //   }
-    //   std::cout << "\n";
-    // }
-    // std::cout << "============================\n";
   }
-
   std::cout << robot_x << " " << robot_y;
-
 }
