@@ -20,11 +20,9 @@ int main() {
       break;
     }
   }
-  // std::cout << "e : " << e << "   k : " << k << std::endl;
 
   for(int i = e-1; i >= 0; i--) {
     int bit = (k >> i) & 1;
-    // printf("%d", bit);
     if (bit == 0) {
       printf("4");
     } else {
