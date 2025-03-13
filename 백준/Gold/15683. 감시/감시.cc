@@ -24,17 +24,14 @@ void spred(int idx, int dire, std::vector<std::vector<int>>& vec) {
   int c = vec[x][y];
 
   for(int j = 0; j < cctv_dire[c][dire].size(); j++) { // 바라보고 있는 총 방향 수
-    // std::cout << "dx index : " << cctv_dire[c][i][j] << std::endl;
     int nx = x + dx[cctv_dire[c][dire][j]];
     int ny = y + dy[cctv_dire[c][dire][j]];
-    // std::cout << "nx : " << nx << "   ny : " << ny << std::endl;
     while(0 <= nx && nx < vec.size() && 0 <= ny && ny < vec[0].size() && vec[nx][ny] != 6) {
       if (vec[nx][ny] == 0) {
           vec[nx][ny] = 7;
       }
       nx = nx + dx[cctv_dire[c][dire][j]];
       ny = ny + dy[cctv_dire[c][dire][j]];
-      // std::cout << "nx : " << nx << "   ny : " << ny << std::endl;
     }
   }
 
@@ -87,22 +84,6 @@ int main () {
 
   dfs(0, vec);
 
-  // std::cout << "\n";
-
-  // for(auto& i : _map) {
-  //   for(auto& j : i) {
-  //     for(auto& k : j) {
-  //       std::cout << k << " ";
-  //     }
-  //     std::cout << "    ";
-  //   }
-  //   std::cout << std::endl;
-  // }
-
-  // std::cout << "\n";
-
-  // std::cout << std::endl;
   // bool 2차원 배열은 auto로 reference 못함
   std::cout << min_count;
-  // 벽 제외, 바라보고 있는 방향 -1에서 다른 값으로 바꾸고 전체 계산
 }
