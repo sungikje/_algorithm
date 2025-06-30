@@ -24,8 +24,8 @@ int main() {
 
             for(int j = start; j < i; j++) {
                 if (arr[j] == 'H') {
-                    arr[j] = 'X';
-                    arr[i] = 'X';
+                    arr[j] = -1;
+                    arr[i] = -1;
                     eat = true;
                     result++;
                     break;
@@ -35,8 +35,8 @@ int main() {
             if(!eat) {
                 for(int j = i+1; j <= end; j++){
                     if (arr[j] == 'H') {
-                        arr[j] = 'X';
-                        arr[i] = 'X';
+                        arr[j] = -1;
+                        arr[i] = -1;
                         result++;
                         break;
                     }
