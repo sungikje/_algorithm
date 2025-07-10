@@ -5,7 +5,7 @@
 int main() {
     std::cin.tie(0);
     std::cout.tie(0);
-    std::ios::sync_with_stdio(false);
+    std::ios::sync_with_stdio(false);   // 유의, scanf로 입력을 받으려면 해당 코드는 사용하면 안된다. 예기치 못한 문제 발생할 수 있음
 
     int n;
     std::cin >> n;
@@ -35,3 +35,9 @@ int main() {
 
     std::cout << cnt + 1;
 }
+
+
+/*
+문제에서 요하는 부분은 log2의 대한 count였지만 문제 푸는 과정 중에 priority queue를 이용해 중앙값을 관리하는 메커니즘 알 수 있었다.
+
+*/
