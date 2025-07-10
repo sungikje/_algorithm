@@ -39,5 +39,5 @@ int main() {
 
 /*
 문제에서 요하는 부분은 log2의 대한 count였지만 문제 푸는 과정 중에 priority queue를 이용해 중앙값을 관리하는 메커니즘 알 수 있었다.
-
+입력되는 수들을 오름차순으로 정렬하고, (n+1)/2 index까지만 max priority queue를 이용해 /=2 작업을 진행
 */
