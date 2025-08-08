@@ -50,3 +50,13 @@ int main() {
 
     std::cout << time;
 }
+
+/*
+처음 진행했던 로직(시간 초과)은 아래와 같다. 
+while (use time check)
+    for (cranes)
+        for (boxes)
+이는 (x * cranes * boxes) = (x * 50 * 10000)으로 x가 200만 된다고 해도 초과 발생
+
+구현하고자 했던 로직은 cranes가 1바퀴 돌 때 boxes도 1바퀴 도는 로직이었는데 반복문을 2번 중첩하며 시간 초과가 발생했다.
+*/
