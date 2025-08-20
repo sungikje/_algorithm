@@ -37,3 +37,9 @@ int main() {
     std::cout << time;
 
 }
+
+/*
+초기 로직은 outlet에서 top을 추출하고 outlet을 순회하면서 top만큼 뺐을 때 0보다 작은 경우만 tmp_outlet이라는 별도의 priority queue에 저장하며 outlet = tmp_outlet으로 진행했다.
+하지만 위의 로직은 1개가 남았을 때의 시간을 고려하지 않았고 이를 추가하기에는 코드가 난잡해짐
+=> 콘센트의 누적 합을 구하는 것이기 때문에 electric_device, outlet 정렬 기준은 그대로 가져가되 콘센트(outlet)이 다 채워진 경우와 아닌 경우를 나눠가며 누적합을 계산했다.
+*/
