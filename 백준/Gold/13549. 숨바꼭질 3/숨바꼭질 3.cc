@@ -13,30 +13,32 @@ int main() {
     std::vector<bool> visited(100001, false);
     std::queue<std::vector<int>> q;
     q.push({n, 0});
-    int min = 100000;
+    visited[n] = true;
     while(!q.empty()) {
         std::vector<int> front = q.front();
         int loc = front[0], cnt = front[1];
-        visited[loc] = true;
         q.pop();
         if (loc == k) {
-            if (cnt < min) min = cnt;
+            std::cout << cnt;
+            break;
         }
 
-        int new_loc = loc + 1;
+        int new_loc = loc * 2;
         if (new_loc <= 100000 && !visited[new_loc]) {
-            q.push({new_loc, cnt+1});
-        }
+            q.push({new_loc, cnt});
+            visited[new_loc] = true;
+        }  
 
         new_loc = loc - 1;
         if (0 <= new_loc && !visited[new_loc]) {
             q.push({new_loc, cnt+1});
+            visited[new_loc] = true;
         }
 
-        new_loc = loc * 2;
+        new_loc = loc + 1;
         if (new_loc <= 100000 && !visited[new_loc]) {
-            q.push({new_loc, cnt});
-        }   
+            q.push({new_loc, cnt+1});
+            visited[new_loc] = true;
+        }
     }
-    std::cout << min;
 }
