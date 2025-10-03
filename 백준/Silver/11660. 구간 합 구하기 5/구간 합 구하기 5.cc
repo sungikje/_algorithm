@@ -24,3 +24,8 @@ int main() {
         std::cout << prefix_sum << "\n";
     }
 }
+
+/*
+1, 2차원 배열의 누적합 obsidian 정리 참고.
+출력에 std::endl 사용해서 시간 초과 발생
+*/
