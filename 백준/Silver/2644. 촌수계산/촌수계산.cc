@@ -1,6 +1,6 @@
 #include <iostream>
 #include <vector>
-#include <queue>
+#include <stack>
 
 int main() {
     std::ios::sync_with_stdio(false);
@@ -9,7 +9,7 @@ int main() {
 
     int n, start, end, cnt;
     std:: cin >> n >> start >> end >> cnt;
-    std::vector<std::vector<int>> graph(n+1, std::vector<int>(n, 0));
+    std::vector<std::vector<int>> graph(n+1, std::vector<int>(0, {}));
     std::vector<bool> visited(n+1, false);
     while(cnt) {
         int a, b;
@@ -19,17 +19,21 @@ int main() {
         cnt--;
     }
 
-    std::queue<std::vector<int>> q;
-    for(auto& a: graph[start]) {
-        q.push({a, 1});
-        visited[a] = true;
+    
+
+    std::stack<std::vector<int>> stack;
+    if (graph[start].size() == 0) {
+        std::cout << -1;
+        return 0;
     }
 
-    while (!q.empty()) {
-        std::vector<int> node_info = q.front();
-        int node = node_info[0], depth = node_info[1];
-        q.pop();
-
+    stack.push({start, 0});
+    while(!stack.empty()) {
+        std::vector<int> top = stack.top();
+        int node = top[0], depth = top[1];
+        stack.pop();
+        visited[node] = true;
+        
         if (node == end) {
             std::cout << depth;
             return 0;
@@ -37,14 +41,10 @@ int main() {
 
         for(auto& a: graph[node]) {
             if (!visited[a]) {
-                q.push({a, depth+1});
-                visited[a] = true;
+                stack.push({a, depth+1});
             }
         }
     }
+
     std::cout << -1;
 }
-
-/*
-위의 코드는 BFS를 이용한 코드이고 DFS로도 한번 풀어보자
-*/
