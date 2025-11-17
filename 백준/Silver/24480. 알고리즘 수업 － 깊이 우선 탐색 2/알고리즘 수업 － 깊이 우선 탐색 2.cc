@@ -48,3 +48,7 @@ int main() {
         std::cout << res[i] << "\n";
     }
 }
+
+/*
+"\n" 대신 std::endl을 사용했을 때 시간초과 발생
+*/
